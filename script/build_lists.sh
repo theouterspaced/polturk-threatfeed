@@ -20,8 +20,8 @@ else
 fi
 
 URLS=(
-    "https://www.usom.gov.tr/url-list.txt"
     "https://hole.cert.pl/domains/v2/domains.txt"
+    "https://www.usom.gov.tr/url-list.txt"
 )
 
 LIST_DIR="$HOME/files/git/polturk-threatfeed/script/list_history"
@@ -100,7 +100,7 @@ write_with_header() {
     mkdir -p "$(dirname "$out_file")"
     {
         echo "# $(date -u)"
-        echo "# A combined domain blocklist from Poland and Türkiye CERT threat feeds."
+        echo "# A combined domains blocklist from Poland and Türkiye CERT threat feeds."
         echo "# All credit resides with these upstream sources:"
         echo "# - CERT Polska Team: https://cert.pl/en/warning-list"
         echo "# - USOM CERT Republic of Türkiye: https://www.usom.gov.tr/en/about-us"
@@ -117,7 +117,7 @@ write_with_header_adblock() {
     mkdir -p "$(dirname "$out_file")"
     {
         echo "! $(date -u)"
-        echo "! A combined domain blocklist from Poland and Türkiye CERT threat feeds."
+        echo "! A combined domains blocklist from Poland and Türkiye CERT threat feeds."
         echo "! All credit resides with these upstream sources:"
         echo "! - CERT Polska Team: https://cert.pl/en/warning-list"
         echo "! - USOM CERT Republic of Türkiye: https://www.usom.gov.tr/en/about-us"
