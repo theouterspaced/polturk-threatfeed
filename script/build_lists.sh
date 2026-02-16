@@ -214,7 +214,6 @@ mkdir -p "$OUT_DIR"
 write_with_header "$OUT_DIR/domains.txt" cat "$MERGED"
 write_with_header "$OUT_DIR/hosts.txt" awk '{print "0.0.0.0 " $0}' "$MERGED"
 write_with_header "$OUT_DIR/wildcard.txt" awk '{print "*." $0}' "$MERGED"
-write_with_header "$OUT_DIR/dnsmasq.txt" awk '{print "local=/" $0 "/"}' "$MERGED"
 write_with_header_adblock "$OUT_DIR/adblock.txt"  awk '{print "||" $0 "^"}' "$MERGED"
 
 archive_history
