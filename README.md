@@ -11,7 +11,6 @@ Updated daily.
 * Hosts: https://raw.githubusercontent.com/theouterspaced/polturk-threatfeed/main/hosts.txt
 * Domains: https://raw.githubusercontent.com/theouterspaced/polturk-threatfeed/main/domains.txt
 * Adblock: https://raw.githubusercontent.com/theouterspaced/polturk-threatfeed/main/adblock.txt
-* Dnsmasq: https://raw.githubusercontent.com/theouterspaced/polturk-threatfeed/main/dnsmasq.txt
 * Wildcard: https://raw.githubusercontent.com/theouterspaced/polturk-threatfeed/main/wildcard.txt
 
 ~
