@@ -87,7 +87,7 @@ prune_history() {
     if [ ${#files[@]} -eq 0 ]; then
         return 0
     fi
-    keep="$(printf "%s\n" "${files[@]}" | sort | tail -n 20)"
+    keep="$(printf "%s\n" "${files[@]}" | sort | tail -n 24)"
     for f in "${files[@]}"; do
         printf "%s\n" "$keep" | grep -Fxq "$f" || rm -f "$f"
     done
@@ -199,7 +199,7 @@ TODAY_FILE="$LIST_DIR/list-${TODAY_UTC}.txt"
 cp -f "$LIST0" "$TODAY_FILE"
 prune_history
 
-# build final list files (combine domains from past 20. do various formats
+# build final list files, do various formats
 echo "== building final list =="
 MERGED="$WORKDIR/merged_all.txt"
 shopt -s nullglob
