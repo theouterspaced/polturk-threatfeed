@@ -87,7 +87,7 @@ prune_history() {
     if [ ${#files[@]} -eq 0 ]; then
         return 0
     fi
-    keep="$(printf "%s\n" "${files[@]}" | sort | tail -n 18)"
+    keep="$(printf "%s\n" "${files[@]}" | sort | tail -n 12)"
     for f in "${files[@]}"; do
         printf "%s\n" "$keep" | grep -Fxq "$f" || rm -f "$f"
     done
