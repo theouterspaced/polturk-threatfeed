@@ -87,7 +87,7 @@ prune_history() {
     if [ ${#files[@]} -eq 0 ]; then
         return 0
     fi
-    keep="$(printf "%s\n" "${files[@]}" | sort | tail -n 24)"
+    keep="$(printf "%s\n" "${files[@]}" | sort --mergesort -S 512M | tail -n 24)"
     for f in "${files[@]}"; do
         printf "%s\n" "$keep" | grep -Fxq "$f" || rm -f "$f"
     done
@@ -190,7 +190,7 @@ function has_ipv6(line) {
     s = tolower(s)
     print s
 }
-' "$RAW" | LC_ALL=C sort -u > "$LIST0"
+' "$RAW" | LC_ALL=C sort --mergesort -u -S 512M > "$LIST0"
 
 # rotate historical lists and save new list
 mkdir -p "$LIST_DIR"
@@ -208,7 +208,7 @@ shopt -u nullglob
 if [ ${#files[@]} -eq 0 ]; then
     : > "$MERGED"
 else
-    cat "${files[@]}" | LC_ALL=C sort -u > "$MERGED"
+    cat "${files[@]}" | LC_ALL=C sort --mergesort -u -S 512M > "$MERGED"
 fi
 mkdir -p "$OUT_DIR"
 write_with_header "$OUT_DIR/domains.txt" cat "$MERGED"
