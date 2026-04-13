@@ -5,6 +5,7 @@ Updated daily.
 
 **All credit resides with these upstream sources:**
 * 🇵🇱 [CERT Polska Team](https://cert.pl/en/warning-list)
+* ~~ [KAD Przekręty](https://kadantiscam.netlify.app)
 * 🇹🇷 [USOM CERT Republic of Türkiye](https://www.usom.gov.tr/en/about-us)
 
 #### Download:
