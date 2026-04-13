@@ -4,6 +4,7 @@
 #
 # Upstream Sources:
 # https://hole.cert.pl/domains/v2/domains.txt
+# https://raw.githubusercontent.com/FiltersHeroes/KADhosts/master/KADomains.txt
 # https://www.usom.gov.tr/url-list.txt
 #
 # "bash build_lists.sh /path/to/output/directory"
@@ -21,6 +22,7 @@ fi
 
 URLS=(
     "https://hole.cert.pl/domains/v2/domains.txt"
+    "https://raw.githubusercontent.com/FiltersHeroes/KADhosts/master/KADomains.txt"
     "https://www.usom.gov.tr/url-list.txt"
 )
 
@@ -103,6 +105,7 @@ write_with_header() {
         echo "# A combined domains blocklist from Poland and Türkiye CERT threat feeds."
         echo "# All credit resides with these upstream sources:"
         echo "# - CERT Polska Team: https://cert.pl/en/warning-list"
+        echo "# - KAD Przekręty: https://kadantiscam.netlify.app"
         echo "# - USOM CERT Republic of Türkiye: https://www.usom.gov.tr/en/about-us"
         echo "# github.com/theouterspaced/polturk-threatfeed"
         echo "##"
@@ -120,6 +123,7 @@ write_with_header_adblock() {
         echo "! A combined domains blocklist from Poland and Türkiye CERT threat feeds."
         echo "! All credit resides with these upstream sources:"
         echo "! - CERT Polska Team: https://cert.pl/en/warning-list"
+        echo "! - KAD Przekręty: https://kadantiscam.netlify.app"
         echo "! - USOM CERT Republic of Türkiye: https://www.usom.gov.tr/en/about-us"
         echo "! github.com/theouterspaced/polturk-threatfeed"
         echo "!"
@@ -184,6 +188,7 @@ function has_ipv6(line) {
     if (has_ipv4(s) || has_ipv6(s)) next
     if (s ~ /^\./) next
     if (s !~ /\./) next
+    if (s ~ /#/) next
     if (s ~ /\//) next
     if (s == "") next
     sub(/[[:space:]]+$/, "", s)
